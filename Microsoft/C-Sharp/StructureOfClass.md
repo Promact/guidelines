@@ -140,7 +140,7 @@ namespace FooBarApplication
         #region Static Variables
 
         private static string _nameOfClass;
-        public static string _nameOfMethods;
+        public static string NameOfMethods;
 
         #endregion
     }
