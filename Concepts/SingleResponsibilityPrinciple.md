@@ -68,7 +68,7 @@ struct TeaMaker
   }
 
 }
-
+```
 
 - Some people may ague over the point that using a condition factor we can control the addition of milk inside the prepareTea() method but then that leads to violation
    of another Software designing principle named DRY (Don’t Repeat Yourself).
@@ -169,7 +169,7 @@ struct HotDrinkMaker
     }
 }
 
-
+```
 
 - SRP IN CLASS/STRUCT
 
