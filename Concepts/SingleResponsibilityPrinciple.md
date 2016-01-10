@@ -171,7 +171,7 @@ struct HotDrinkMaker
 
 ```
 
-- SRP IN CLASS/STRUCT
+## SRP IN CLASS/STRUCT
 
 - Classes/Structs must follow 2 things.
 
