@@ -1,20 +1,20 @@
-SRP (Single Responsibility Principle)
+# SRP (Single Responsibility Principle)
 
-- SRP is about making a single method/function do specific task
-  or a class/structure do a specific set of functionalities that defines that Type (i.e. class or struct)
+**- SRP is about making a single method/function do specific task
+  or a class/structure do a specific set of functionalities that defines that Type (i.e. class or struct)**
 
 
-Note:
-     I am using Swift, the flagship (now open-source) language of Apple Inc. to demonstrate the SRP principle.
+**Note:**
+     ***I am using Swift, the flagship (now open-source) language of Apple Inc. to demonstrate the SRP principle.***
  
 
-- SRP IN METHOD/FUNCTION     
+## SRP IN METHOD/FUNCTION     
 
-Example:
+**Example:**
      Taking the example of a Coffee and Tea making machine to explain SRP in method/function
 
 
-Tea-maker
+#### Tea-maker
 
 ```Swift
 
@@ -30,8 +30,9 @@ struct TeaMaker
      // Add milk to tea
   }
 }
+```
 
-Coffee-maker
+#### Coffee-maker
 
 ```Swift
 
@@ -48,7 +49,7 @@ struct CoffeeMaker
   }
 
 }
-
+```
 
 - It’s always a good idea to have a single task assigned to a single methods/functions.
 
@@ -95,7 +96,7 @@ struct HotDrinkMaker
   }
 }
 
-
+```
 
 - Implementing SRP to a method/function prevents violation of DRY.
 
@@ -130,6 +131,7 @@ struct HotDrinkMaker
   }
 }
 
+```
 
 - If we try to optimise this HotDrinkMaker struct further then I would prefer the below code.
 
@@ -183,6 +185,7 @@ struct HotDrinkMaker
 Example:
      Taking the example of a Car to explain SRP in class/struct
 
+``` Swift
 struct Car
 {
   internal func controlSteering()
@@ -201,7 +204,7 @@ struct Car
   }
 
 }
-
+```
 
 - All the methods above controlSteering(), controlAcceleration() and controlBrakes() does a specific Task and all the methods are apt to the name of the struct that its contained within.
 
@@ -285,3 +288,4 @@ struct Car
     }
 }
 
+```
