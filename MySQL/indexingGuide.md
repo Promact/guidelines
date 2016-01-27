@@ -4,7 +4,7 @@
 
 - An index takes up disk space, and multiple indexes take up correspondingly more space. This might cause you to reach a table size limit more quickly than if there are no indexes. Avoid indexes wherever possible.
 
-**Compount Indices**
+**Compound Indices**
 
 You can create compound indices - an index that includes multiple columns. MySQL can use these from left to right. So if you have table as follow:
 
