@@ -6,10 +6,10 @@
 
 ## Why use pass-by-copy (struct implementation)
 
-##### One owner
-##### No dependency
-##### Easy to compare
-##### Easy to copy
+##### - One owner
+##### - No dependency
+##### - Easy to compare
+##### - Easy to copy
 
 ```Swift
 class Dog
@@ -108,5 +108,7 @@ more than one owner leads to dependencies which can span among many references w
 #### Few data-structures in Swift which are struct implementation
 
 **- Array**
+
 **- Dictionary**
+
 **- Primitive types like String, Int, Float, Double, Character, Bool**
