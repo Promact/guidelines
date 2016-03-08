@@ -1,7 +1,8 @@
 # Struct vs Class
 
 **- struct is pass-by-copy and class is pass-by-reference**
-**- pass-by-copy is preferrable to use in Swift as compared to pass-by-reference"
+
+**- pass-by-copy is preferrable to use in Swift as compared to pass-by-reference**
 
 ## Why use pass-by-copy (struct implementation)
 
