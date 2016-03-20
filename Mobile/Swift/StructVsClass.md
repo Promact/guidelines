@@ -111,4 +111,4 @@ more than one owner leads to dependencies which can span among many references w
 
 **- Dictionary**
 
-**- Primitive types like String, Int, Float, Double, Character, Bool**
+**- Data types like String, Int, Float, Double, Character, Bool**
