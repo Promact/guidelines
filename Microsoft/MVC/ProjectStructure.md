@@ -95,6 +95,7 @@ Alternate directory structure (In this structure we can use static methods):
 This project will hold domain model classes, As well as it will contain Entity Framework related configurations and generic data repositories.
 
 Directory structure:
+
 ```
 ├── EmployeeManagement.DomainModel /
 │   ├── Models
@@ -106,11 +107,20 @@ Directory structure:
 
 ### Globalization:
 
-If we need i18n related key-string mappings and string constants, then we will use this project to define all keyvalue pairs as well as resource files related to globalization in this project.
+If we need i18n related key-string mappings and string constants, then we will use this project to define all key-value pairs as well as resource files related to globalization in this project.
+
+```
+├── EmployeeManagement.Globalization /
+│   ├── Home
+│   │   ├── Login.cs
+│   │   ├── ForgetPassword.cs
+│   ├── Dashboard
+│   │   ├── Main.cs
+```
 
 ### Core.Test
 
-Unit test project for testing controllers, action filters, signalr hubs. (Unit tests for Core project classes)
+Unit test project for testing controllers, action filters, SignalR hubs. (Unit tests for Core project classes)
 
 ### Repository.Test
 
