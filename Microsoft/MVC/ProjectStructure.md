@@ -92,7 +92,17 @@ Alternate directory structure (In this structure we can use static methods):
 
 ### DomainModel:
 
-This project will hold all domain model classes which are directly connected to database (as we are using code first approach), As well as it will contain Entity Framework related configurations and generic datarepositories.
+This project will hold domain model classes, As well as it will contain Entity Framework related configurations and generic data repositories.
+
+Directory structure:
+```
+├── EmployeeManagement.DomainModel /
+│   ├── Models
+│   │   ├── User.cs
+│   │   ├── Department.cs
+│   ├── Migrations
+│   │   ├── Configuration.cs
+```
 
 ### Globalization:
 
