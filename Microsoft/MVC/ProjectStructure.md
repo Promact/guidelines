@@ -109,6 +109,8 @@ Directory structure:
 
 If we need i18n related key-string mappings and string constants, then we will use this project to define all key-value pairs as well as resource files related to globalization in this project.
 
+Directory structure:
+
 ```
 ├── EmployeeManagement.Globalization /
 │   ├── Home
@@ -122,45 +124,68 @@ If we need i18n related key-string mappings and string constants, then we will u
 
 Unit test project for testing controllers, action filters, SignalR hubs. (Unit tests for Core project classes)
 
+Directory structure:
+
+```
+├── EmployeeManagement.Core.Test /
+│   ├── Bootstrap
+│   │   ├── AutofaceConfig.cs
+│   │   ├── Initialize.cs
+│   │   ├── Cleanup.cs
+│   ├── Controllers
+│   │   ├── HomeControllerTest.cs
+│   ├── ApiControllers
+│   │   ├── ValueControllerTest.cs
+```
+
 ### Repository.Test
 
 Unit test project which will hold unit tests related to business logic of all the logical modules of the application. (Unit tests for Repository project classes)
 
+Directory structure:
+
+```
+├── EmployeeManagement.Repository.Test /
+│   ├── Bootstrap
+│   │   ├── AutofaceConfig.cs
+│   │   ├── Initialize.cs
+│   │   ├── Cleanup.cs
+│   ├── Modules
+│   │   ├── UserTest.cs
+```
+
 ## Dependencies between projects
 
-### Web:
-
-- Core
-- DomainModel
-- Globalization
-
-### Core:
-
-- Repository
-- DomainModel
-
-### Repository:
-
-- Util
-- DomainModel
- 
 ### Util:
 
 - N/A
 
 ### DomainModel:
 
-- N/A
+- Util
+
+### Repository:
+
+- DomainModel
+- Globalization
+
+### Core:
+
+- Repository
+- Globalization
+
+### Web:
+
+- Core
+- Globalization
 
 ### Core.Test
 
 - Core
-- DomainModel
 
 ### Repository.Test
 
 - Repository
-- DomainModel
 
 
 ## Example
@@ -171,14 +196,68 @@ Solution name would be EmployeeManagement.sln
 
 Projects would be 
 
-- EmployeeManagement.Web 
-- EmployeeManagement.Core
-- EmployeeManagement.Core.Test
-- EmployeeManagement.Repository
-- EmployeeManagement.Repository.Test
-- EmployeeManagement.Util
-- EmployeeManagement.Util.Test
-- EmployeeManagement.DomainModel 
-- EmployeeManagement.Globalization  
-
+```
+├── EmployeeManagement.Web /
+│   ├── App_Start
+│   │   ├── AutofacConfig.cs
+│   │   ├── RouteConfig.cs
+│   │   ├── BundleConfig.cs
+│   │   ├── LogConfig.cs
+│   │   ├── AutomapperConfig.cs
+│   ├── Content
+│   │   ├── Javascript
+│   │   ├── CSS
+│   │   ├── Fonts
+│   ├── Templates
+│   ├── Views
+│   ├── Startup.cs
+├── EmployeeManagement.Core /
+│   ├── Controllers
+│   │   ├── HomeController.cs
+│   ├── ApiControllers
+│   │   ├── ValueController.cs
+│   ├── ActionFilters
+│   │   ├── AuthorizeFilter.cs
+│   ├── Hubs
+│   │   ├── MainHub.cs
+├── EmployeeManagement.Core.Test /
+│   ├── Bootstrap
+│   │   ├── AutofaceConfig.cs
+│   │   ├── Initialize.cs
+│   │   ├── Cleanup.cs
+│   ├── Controllers
+│   │   ├── HomeControllerTest.cs
+│   ├── ApiControllers
+│   │   ├── ValueControllerTest.cs
+├── EmployeeManagement.Repository /
+│   ├── User
+│   │   ├── UserRepository.cs
+│   │   ├── IUserRepository.cs
+│   ├── Department
+│   │   ├── IDepartmentRepository.cs
+│   │   ├── DepartmentRepository.cs
+├── EmployeeManagement.Repository.Test /
+│   ├── Bootstrap
+│   │   ├── AutofaceConfig.cs
+│   │   ├── Initialize.cs
+│   │   ├── Cleanup.cs
+│   ├── Modules
+│   │   ├── UserTest.cs
+├── EmployeeManagement.Util /
+│   ├── Email
+│   │   ├── IEmailUtility.cs
+│   │   ├── EmailUtility.cs
+├── EmployeeManagement.DomainModel /
+│   ├── Models
+│   │   ├── User.cs
+│   │   ├── Department.cs
+│   ├── Migrations
+│   │   ├── Configuration.cs
+├── EmployeeManagement.Globalization /
+│   ├── Home
+│   │   ├── Login.cs
+│   │   ├── ForgetPassword.cs
+│   ├── Dashboard
+│   │   ├── Main.cs
+```
 
