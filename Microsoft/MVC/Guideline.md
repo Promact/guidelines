@@ -24,7 +24,7 @@ This project will hold basic utility classes which can be used for utilities lik
 
 ### DomainModel:
 
-This project will hold all domain model classes which are directly connected to database (as we are using code first approach), As well as it will contain Entity Framework related configurations.
+This project will hold all domain model classes which are directly connected to database (as we are using code first approach), As well as it will contain Entity Framework related configurations and generic datarepositories.
 
 ### Globalization:
 
@@ -49,7 +49,37 @@ Unit test project which will hold unit tests related to business logic of all th
 ### Core:
 
 - Repository
-- Globalization
+- DomainModel
+
+### Repository:
+
+- Util
+- DomainModel
+ 
+### Util:
+
+- N/A
+
+### DomainModel:
+
+- N/A
+
+### Core.Test
+
+- Core
+- DomainModel
+
+### Repository.Test
+
+- Repository
+- DomainModel
 
 
+## Example
+
+Suppose we are making new project for Employee management, its structure would go like below
+
+Solution name would be EmployeeManagement.sln
+
+Projects would be EmployeeManagement.Web, EmployeeManagement.Core, EmployeeManagement.Repository, EmployeeManagement.Util, EmployeeManagement.DomainModel, EmployeeManagement.Globalization, EmployeeManagement.Core.Test, EmployeeManagement.Repository.Test.
 
