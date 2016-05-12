@@ -18,15 +18,15 @@ You can create compound indices - an index that includes multiple columns. MySQL
 
 
 if you have a compound index that includes Name/Branch/Age in that order, these WHERE clauses would use the index:
-```
+```sql
 WHERE Name='studentA' and Branch='CSE'
 ```
-```
+```sql
 WHERE Name='studentA' and Branch='CSE' and Age > 18
 ```
 but
 
-```
+```sql
 WHERE Branch='CSE' and Age > 18
 ```
 would not use that index because everything has to be used from left to right.
