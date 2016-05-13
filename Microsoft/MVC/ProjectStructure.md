@@ -1,5 +1,8 @@
-Project structure
 ---
+title: Project Structure guide
+---
+
+# Project structure
 
 We follow multi-project structure in which every project have specific responsibility. We will use example of **Employee Management** system.
 
