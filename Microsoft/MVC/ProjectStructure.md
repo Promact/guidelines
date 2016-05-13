@@ -1,8 +1,8 @@
-# Project structure
+---
+Project structure
+---
 
 We follow multi-project structure in which every project have specific responsibility. We will use example of **Employee Management** system.
-
-## Projects:
 
 ### Web:
 
