@@ -1,7 +1,3 @@
----
-layout: page
----
-
 # SRP (Single Responsibility Principle)
 
 **- SRP is about making a single method/function do specific task

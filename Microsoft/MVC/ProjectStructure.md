@@ -1,17 +1,14 @@
----
-layout: page
----
-
 # Project structure
 
 We follow multi-project structure in which every project have specific responsibility. We will use example of **Employee Management** system.
+
+## Projects:
 
 ### Web:
 
 This is the startup/frontend project which will be responsible for holding all frontend related items such as views(cshtml), templates(html), client dependencies(javascript,css,scss). It will also have bootstrap code like registering routes, dependencies and configuring logs.
 
 Directory structure:
-
 ```
 ├── EmployeeManagement.Web /
 │   ├── App_Start
@@ -34,7 +31,6 @@ Directory structure:
 This project will hold **MVC controllers** as well as **WebAPI controllers**, **Action Filters**, **SignalR Hubs**. We keep client/server communication related code in this and don't keep any business logic.
 
 Directory structure:
-
 ```
 ├── EmployeeManagement.Core /
 │   ├── Controllers

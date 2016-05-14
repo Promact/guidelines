@@ -1,7 +1,3 @@
----
-layout: page
----
-
 # Git Best Practices for Enterprise Application
 
 We settled on a workflow called Git Flow, but instead of branching features from dev, we branch them from the current release. This makes us able to work on seperate issues in different speeds. If they are successful in QA, they go into the release(production).

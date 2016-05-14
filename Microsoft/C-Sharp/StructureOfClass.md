@@ -1,7 +1,3 @@
----
-layout: page
----
-
 # Structure of A Class
 
 A Class can be divided into following parts
