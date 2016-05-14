@@ -1,4 +1,4 @@
-﻿/*
+/*
 *   Author: Dharmsh Pipariya
 *   Email: pipariyadharmesh@gmail.com
 */
@@ -41,8 +41,8 @@ h1 { font-size: 28px; }
 h2 { color: lighten($black, 25); }
 h3, h4, h5, h6 { color: lighten($black, 35); }
 a { color: $blue; background-color: transparent; text-decoration: none;
-    &:hover { color: darken($blue,5); text-decoration: underline; }
-    small, &:hover small { font-size: 11px; color: lighten($black, 50); margin-top: -0.3em; display: block; }
+  &:hover { color: darken($blue,5); text-decoration: underline; }
+  small, &:hover small { font-size: 11px; color: lighten($black, 50); margin-top: -0.3em; display: block; }
 }
 b, strong { font-weight: bolder; }
 dfn { font-style: italic; }
@@ -86,35 +86,39 @@ textarea { overflow: auto; }
 .right { float: right; }
 .clear { clear: both; }
 .clearfix { clear: both; display: block;
-    &:after, &:before { content: ' '; display: block; }
-    &:before { clear: both; }
+  &:after, &:before { content: ' '; display: block; }
+  &:before { clear: both; }
 }
 .page-title { border-bottom: 1px solid $light-grey; padding-bottom: 8px; }
 
-.btn { display: inline-block; padding: 0.75rem 1rem; margin-bottom: 4px; color: rgba($white, 0.7); background-color: rgba($white, 0.08); border: 1px solid rgba($white, 0.2); border-radius: 3px; transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-    &:hover, &:focus { color: rgba($white, 0.8); text-decoration: none; background-color: rgba($white, 0.2); border-color: rgba($white, 0.3); }
-    &.btn-primary { background-color: $blue;
-        &:hover, &:focus { background-color: lighten($blue,5); }
-        &:active { background-color: darken($blue,5); }
-    }
+.btn, .btn:visited { display: inline-block; padding: 0.75rem 1rem; margin-bottom: 4px; color: rgba($white, 0.7); background-color: rgba($white, 0.08); border: 1px solid rgba($white, 0.2); border-radius: 3px; transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  &:hover, &:focus, &:visited { color: rgba($white, 0.8); text-decoration: none; background-color: rgba($white, 0.2); border-color: rgba($white, 0.3); }
+  &.btn-primary { background-color: $blue;
+    &:hover, &:focus { background-color: lighten($blue,5); }
+    &:active { background-color: darken($blue,5); }
+  }
 }
 
 //Layout
 
 //asidenav
 .aside-menu { position: fixed; top: 0; bottom: 0; left: 0; width: 220px; background: $dark-grey; overflow-x: hidden; overflow-y: hidden; padding: 1rem 0;
-    &:hover { overflow-y: auto; }
-    ul { padding: 3px 0; margin: 0; list-style: none;
-        li { display: block;
-            a { display: block; line-height: 32px; font-size: 15px; color: darken($white,10); padding: 0 1rem; border-left: 5px solid transparent; text-decoration: none;
-                &:hover, &:focus, &:active, .active { color: $white; text-decoration: none; background: $darken-grey; }
-                .active { border-collapse: $yellow; }
-                .fa { float: right; line-height: 32px; }
-            }
-            ul { margin-left: 1rem; display: block; max-height: 0; overflow: hidden; background: rgba($dark-grey,0.1); transition: 5s ease-out; }
-            &:hover ul { max-height: none; }
-        }
+  &:hover { overflow-y: auto; }
+  .logo { padding: 15px; border-bottom: 1px solid rgba($white,0.1);
+    img { max-width: 100%; }
+  }
+  ul { padding: 3px 0; margin: 0; list-style: none;
+    li { display: block;
+      &:hover { background: $darken-grey; }
+      a { display: block; line-height: 32px; font-size: 15px; color: darken($white,20); padding: 0 1rem; border-left: 5px solid transparent; text-decoration: none; white-space: nowrap; max-width: 100%; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis;
+        &:hover, &:focus, &:active, .active { color: $white; text-decoration: none; }
+        .active { border-collapse: $yellow; }
+        .fa { float: right; line-height: 32px; }
+      }
+      ul { margin-left: 5px; display: block; max-height: 0; overflow: hidden; background: rgba($dark-grey,0.1); -moz-transition: 5s ease-out; -o-transition: 5s ease-out; -webkit-transition: 5s ease-out; transition: 5s ease-out; }
+      &:hover > ul { max-height: none; }
     }
+  }
 }
 
 //container
@@ -123,29 +127,29 @@ textarea { overflow: auto; }
 
 //header
 .header { border-bottom: 1px solid $light-grey; padding-bottom: 8px; margin-bottom: 20px;
-    .nav-toggle { display: none; }
-    h1 { margin-bottom: 0; }
+  .nav-toggle { display: none; }
+  h1 { margin-bottom: 0; }
 }
 
 //footer
 .footer { background: $lighten-grey; border-top: 1px solid $light-grey; display: block; margin: 1rem -30px 0; padding: 0 30px;
-    p { padding: 1rem 0; margin: 0; }
+  p { padding: 1rem 0; margin: 0; }
 }
 
 //responsive
 @media screen and (max-width: 767px) {
-    .aside-menu { left: -220px; -moz-transition: 0.3s; -o-transition: 0.3s; -webkit-transition: 0.3s; transition: 0.3s; z-index: 1; overflow-y: auto;
-        & + .container-fluid { padding-left: 20px; }
-        &.open { left: 0; }
-    }
+  .aside-menu { left: -220px; -moz-transition: 0.3s; -o-transition: 0.3s; -webkit-transition: 0.3s; transition: 0.3s; z-index: 1; overflow-y: auto;
+    & + .container-fluid { padding-left: 20px; }
+    &.open { left: 0; }
+  }
 
-    .container-fluid { padding: 80px 20px 0; }
+  .container-fluid { padding: 80px 20px 0; }
 
-    .header { position: fixed; top: 0; left: 0; right: 0; padding: 13px 20px 13px 55px; background: $lighten-grey; box-shadow: 0 1px 10px $grey;
-        .nav-toggle { display: block; position: absolute; top: 0; left: 0; padding: 17px 20px; background: transparent; border: 0; color: lighten($black,60); }
-    }
+  .header { position: fixed; top: 0; left: 0; right: 0; padding: 13px 20px 13px 55px; background: $lighten-grey; box-shadow: 0 1px 10px $grey;
+    .nav-toggle { display: block; position: absolute; top: 0; left: 0; padding: 17px 20px; background: transparent; border: 0; color: lighten($black,60); cursor: pointer; }
+  }
 
-    .footer { margin: 1rem -20px 0;
-        p + p { padding-top: 0; }
-    }
+  .footer { margin: 1rem -20px 0;
+    p + p { padding-top: 0; }
+  }
 }

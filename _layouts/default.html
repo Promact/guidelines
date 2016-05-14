@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+<body>
+  <div class="wrapper">
+    {% include aside.html %}
+    <div class="container-fluid">
+      <div class="header">
+        <button type="button" class="nav-toggle btn"><i class="fa fa-bars"></i></button>
+        <h1>Guidelines</h1>
+      </div>
+      <section>
+        {{ content }}
+      </section>
+      {% include footer.html %}
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="{{ site.baseurl }}/javascripts/main.js"></script>
+  <script src="{{ site.baseurl }}/javascripts/scale.fix.js"></script>
+</body>
+</html>

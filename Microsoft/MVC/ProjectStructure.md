@@ -1,5 +1,5 @@
 ---
-title: Project Structure guide
+layout: page
 ---
 
 # Project structure
