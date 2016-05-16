@@ -107,16 +107,26 @@ textarea { overflow: auto; }
   .logo { padding: 15px; border-bottom: 1px solid rgba($white,0.1);
     img { max-width: 100%; }
   }
-  ul { padding: 3px 0; margin: 0; list-style: none;
-    li { display: block;
-      &:hover { background: $darken-grey; }
+  ul { padding: 0; margin: 0; list-style: none;
+    li { position: relative; display: block;
       a { display: block; line-height: 32px; font-size: 15px; color: darken($white,20); padding: 0 1rem; border-left: 5px solid transparent; text-decoration: none; white-space: nowrap; max-width: 100%; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis;
         &:hover, &:focus, &:active, .active { color: $white; text-decoration: none; }
         .active { border-collapse: $yellow; }
         .fa { float: right; line-height: 32px; }
       }
-      ul { margin-left: 5px; display: block; max-height: 0; overflow: hidden; background: rgba($dark-grey,0.1); -moz-transition: 5s ease-out; -o-transition: 5s ease-out; -webkit-transition: 5s ease-out; transition: 5s ease-out; }
-      &:hover > ul { max-height: none; }
+      &:hover > a, &.open > a { background: $darken-grey; }
+      ul { display: block; display: none; overflow: hidden;
+        li {
+          a { padding-left: 1.5rem; }
+          ul li {
+            a { padding-left: 2rem; }
+          }
+        }
+      }
+      &.open { border: solid rgba($white,0.1); border-width: 1px 0;
+        & > a > .fa:before { content: "\f106"; }
+        & > ul { display: block; }
+      }
     }
   }
 }
