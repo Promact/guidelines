@@ -434,13 +434,12 @@ textarea {
     .aside-menu .logo img {
       max-width: 100%; }
   .aside-menu ul {
-    padding: 3px 0;
+    padding: 0;
     margin: 0;
     list-style: none; }
     .aside-menu ul li {
+      position: relative;
       display: block; }
-      .aside-menu ul li:hover {
-        background: #2c3e50; }
       .aside-menu ul li a {
         display: block;
         line-height: 32px;
@@ -463,18 +462,23 @@ textarea {
         .aside-menu ul li a .fa {
           float: right;
           line-height: 32px; }
+      .aside-menu ul li:hover > a, .aside-menu ul li.open > a {
+        background: #2c3e50; }
       .aside-menu ul li ul {
-        margin-left: 5px;
         display: block;
-        max-height: 0;
-        overflow: hidden;
-        background: rgba(52, 73, 94, 0.1);
-        -moz-transition: 5s ease-out;
-        -o-transition: 5s ease-out;
-        -webkit-transition: 5s ease-out;
-        transition: 5s ease-out; }
-      .aside-menu ul li:hover > ul {
-        max-height: none; }
+        display: none;
+        overflow: hidden; }
+        .aside-menu ul li ul li a {
+          padding-left: 1.5rem; }
+        .aside-menu ul li ul li ul li a {
+          padding-left: 2rem; }
+      .aside-menu ul li.open {
+        border: solid rgba(255, 255, 255, 0.1);
+        border-width: 1px 0; }
+        .aside-menu ul li.open > a > .fa:before {
+          content: "\f106"; }
+        .aside-menu ul li.open > ul {
+          display: block; }
 
 .container-fluid {
   width: 100%;
