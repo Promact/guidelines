@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Single Responsibility Principle
 ---
 
 # SRP (Single Responsibility Principle)

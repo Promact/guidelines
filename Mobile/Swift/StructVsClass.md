@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Struct vs Class
 ---
 
 # Struct vs Class

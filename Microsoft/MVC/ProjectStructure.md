@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Project structure
 ---
 
 # Project structure

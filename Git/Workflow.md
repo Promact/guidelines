@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Git
 ---
 
 # Git Best Practices for Enterprise Application

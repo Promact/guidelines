@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Structure of A Class
 ---
 
 # Structure of A Class
