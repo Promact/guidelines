@@ -16,4 +16,12 @@
       $(e.target).closest('li').toggleClass('open');
     }
   });
+
+  //for side menu
+  $('.aside-menu .main-menu a').each(function () {
+    if ($(this).attr('href') == location.pathname) {
+      $(this).closest('li').addClass('active');
+      $(this).parents('li').addClass('open');
+    }
+  });
 });
