@@ -1,4 +1,4 @@
-# Structure of A Class
+# Structure of a Class
 
 A Class can be divided into following parts
 
@@ -271,3 +271,6 @@ namespace FooBarApplication
 }
 ```
 
+Additional naming conventions to follow
+
+[Naming Guidelines](https://msdn.microsoft.com/en-us/library/ms229002.aspx)
