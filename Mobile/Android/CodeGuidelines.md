@@ -2,7 +2,7 @@
 
 This is general guideline and rules to follow for android application development.
 
-##* Follow Field Naming Conventions
+##- Follow Field Naming Conventions
 
 	- Non-public, non-static field names start with m.
 	- Static field names start with s. (if it is private static)
@@ -11,7 +11,7 @@ This is general guideline and rules to follow for android application developmen
 
 	For example:
 	
-	```javascript
+	```java
 	public class MyClass {
 		public static final int SOME_CONSTANT = 42;
 		public int publicField;
@@ -22,7 +22,7 @@ This is general guideline and rules to follow for android application developmen
 	}
 	```
 
-##* All the java files and XML files with in the project should have 4 spaces indent. Which increase code understanding and readability.
+##- All the java files and XML files with in the project should have 4 spaces indent. Which increase code understanding and readability.
 
 3.	Line length should be max 100 characters to increase readability
 	
