@@ -2,15 +2,27 @@
 
 This is general guideline and rules to follow for android application development.
 
+##* Follow Field Naming Conventions
 
-1.	Variables should be defined as per below naming convention guideline:
-•	Non-public, non-static field names start with m.
-•	Static field names start with s.
-•	Other fields start with a lower case letter.
-•	Public static final fields (constants) are ALL_CAPS_WITH_UNDERSCORES.
+	- Non-public, non-static field names start with m.
+	- Static field names start with s. (if it is private static)
+	- Other fields start with a lower case letter.
+	- Public static final fields (constants) are ALL_CAPS_WITH_UNDERSCORES.
 
+	For example:
+	
+	```javascript
+	public class MyClass {
+		public static final int SOME_CONSTANT = 42;
+		public int publicField;
+		private static MyClass sSingleton;
+		int mPackagePrivate;
+		private int mPrivate;
+		protected int mProtected;
+	}
+	```
 
-2.	All the java files and XML files with in the project should have 4 spaces indent. Which increase code understanding and readability.
+##* All the java files and XML files with in the project should have 4 spaces indent. Which increase code understanding and readability.
 
 3.	Line length should be max 100 characters to increase readability
 	
