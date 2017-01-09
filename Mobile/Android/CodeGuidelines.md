@@ -151,28 +151,33 @@ public String(byte[] bytes) {
 There has to be separate files for each class in my Android projects, the only exception being AsyncTasks. Having this many java files means you have to have more packages than the base package. Here the example ended up with a package for each type of main class. Each class should named ending with its type.
 
 - com.example
-  - activities (package)
-    Contains all the activities. Classes are all named with Activity at the end. That way, you can immediately know what it is when reading Java code that doesn't have its full package name.
 
-  - adapters (package)
-    Contains all the adapters.
+  **- activities (package):** Contains all the activities. Classes are all named with Activity at the end. That way, you can immediately know what it is when reading Java code that doesn't have its full package name.
+
+  - adapters (package) : Contains all the adapters.
 
   - authenticator (package)
+
     Contains any class related to signing a user in. I create a local account and having all related classes together is very handy.
 
   - data (package)
+
     Contains all classes related to data management such as ContentProvider and SQLiteHelper.
 
   - data.migrations (package)
+
     Contains all of my SQLite migrations. I created a class for migrations, read about it here, and put them all in this package.
 
   - fragments (package)
+
     Contains all fragments.
 
   - helpers (package)
+
     Contains helper classes. A helper class is a place to put code that is used in more than one place. I have a DateHelper for instance. Most of the methods are static.
 
   - interfaces (package)
+
     Contains all interfaces.
 
   - models (package)
