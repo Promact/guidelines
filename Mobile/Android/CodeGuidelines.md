@@ -87,15 +87,15 @@ void setServerPort(String value) {
 
 Aslo don't catch generic exception like below:
 
-```java
 
+```java
 try {
-    someComplicatedIOFunction();        // may throw IOException
-    someComplicatedParsingFunction();   // may throw ParsingException
-    someComplicatedSecurityFunction();  // may throw SecurityException
-    // phew, made it all the way
-} catch (Exception e) {                 // I'll just catch all exceptions
-    handleError();                      // with one generic handler!
+   someComplicatedIOFunction();        // may throw IOException
+   someComplicatedParsingFunction();   // may throw ParsingException
+   someComplicatedSecurityFunction();  // may throw SecurityException
+   // phew, made it all the way
+} catch (Exception e) {                // I'll just catch all exceptions
+   handleError();                      // with one generic handler!
 }
 
 ```
