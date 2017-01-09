@@ -202,8 +202,9 @@ There has to be separate files for each class in my Android projects, the only e
  ```
 
 - Use android manifest for declaring permission, user-permission, services, receivers, intent-filter, activities, application class and its attribute.
+  
   For example
-```xml
+  ```xml
   <?xml version="1.0" encoding="utf-8"?>
 
   <manifest>
@@ -257,7 +258,7 @@ There has to be separate files for each class in my Android projects, the only e
       </application>
   
   </manifest>
-```
+  ```
 
 ## Use Semantic Versioning 
 
