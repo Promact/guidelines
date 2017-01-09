@@ -203,8 +203,65 @@ There has to be separate files for each class in my Android projects, the only e
 
 - Use android manifest for declaring permission, user-permission, services, receivers, intent-filter, activities, application class and its attribute.
 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
 
-## Semantic versioning should be used for versioning the application.
+<manifest>
+
+    <uses-permission />
+    <permission />
+    <permission-tree />
+    <permission-group />
+    <instrumentation />
+    <uses-sdk />
+    <uses-configuration />  
+    <uses-feature />  
+    <supports-screens />  
+    <compatible-screens />  
+    <supports-gl-texture />  
+
+    <application>
+
+        <activity>
+            <intent-filter>
+                <action />
+                <category />
+                <data />
+            </intent-filter>
+            <meta-data />
+        </activity>
+
+        <activity-alias>
+            <intent-filter> . . . </intent-filter>
+            <meta-data />
+        </activity-alias>
+
+        <service>
+            <intent-filter> . . . </intent-filter>
+            <meta-data/>
+        </service>
+
+        <receiver>
+            <intent-filter> . . . </intent-filter>
+            <meta-data />
+        </receiver>
+
+        <provider>
+            <grant-uri-permission />
+            <meta-data />
+            <path-permission />
+        </provider>
+
+        <uses-library />
+
+    </application>
+
+</manifest>
+```
+
+## Use Semantic Versioning 
+
+
 
 
 ## External library should be imported by maven or jCenter only. If library not available in maven or jCenter then that library (.jar file or module) should be placed into the libs folder under that particular module. (Such library should be also handled in .gitignore file to get committed along with code)
