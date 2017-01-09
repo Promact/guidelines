@@ -51,17 +51,97 @@ Instrument i =
 
 
 ## Application log should be written in proper manner with proper declaration (ERROR, WARNING, INFORMATION, DEBUG and VERBOSE). Final Log should be written in separate file. So it is easy to manage it any time. Also use Log instead of native System.out.printf or printfln.
-Ref: 
 
-## Don’t ignore Exceptions and don’t catch generic Exceptions. Exceptions has to be well cached and well-handled for each exceptions. Exception should be globally handled.
-	Ref: 
+- ERROR: Use when something fatal has happened.
+- WARNING: Use when something serious and unexpected happened.
+- INFORMATIVE: Use to note inportant information that is required for application to trace and look for.
+- DEBUG: Use for debug purposes. 
+- VERBOSE: Use for everything else. This level will only be logged on debug builds and should be surrounded by an if (LOCAL_LOGV) block (or equivalent) so it can be compiled out by default. Any string building will be stripped out of release builds and needs to appear inside the if (LOCAL_LOGV) block.
+
+```java
+Log.v(String, String) (verbose)
+Log.d(String, String) (debug)
+Log.i(String, String) (information)
+Log.w(String, String) (warning)
+Log.e(String, String) (error)
+```
+For example:
+
+```java
+Log.i("MyActivity", "MyClass.getView() — get item number " + position);
+```
+
+
+## Don’t ignore Exceptions. Don’t catch generic Exceptions. 
+
+Exceptions has to be well cached and well-handled for each exceptions. Exception should be globally handled.
+
+Check below unproper example:
+``java
+void setServerPort(String value) {
+    try {
+        serverPort = Integer.parseInt(value);
+    } catch (NumberFormatException e) { }
+}
+```
+
+Aslo don't catch generic exception like below:
+
+```java
+try {
+    someComplicatedIOFunction();        // may throw IOException
+    someComplicatedParsingFunction();   // may throw ParsingException
+    someComplicatedSecurityFunction();  // may throw SecurityException
+    // phew, made it all the way
+} catch (Exception e) {                 // I'll just catch all exceptions
+    handleError();                      // with one generic handler!
+}
+```
+
+Use comment to explaing exception as below example:
+
+```java
+/** If value is not a valid number, original port number is used. */
+void setServerPort(String value) {
+    try {
+        serverPort = Integer.parseInt(value);
+    } catch (NumberFormatException e) {
+        // Method is documented to just ignore invalid user input.
+        // serverPort will just be unchanged.
+    }
+}
+```
+
+Note: Define one class with name Exceptionhandler.java and mention genaric method to call for all exception with in the app. With this, you will have once place to handled/manage all exceptions of the application.
 
 
 ## Java-doc standard comments should be used for explanation of the method, class and declaration whenever required.
-Ref: 
-	
-## Listener used in the activity has to be implemented first and then used its override methods in same activity. If there are more than 2-3 fields included with listener with in same activity then that should be handled by Switch-case, else normal if-else condition should be used.
 
+Every class and nontrivial public method you write must contain a Javadoc comment with at least one sentence describing what the class or method does. This sentence should start with a third person descriptive verb.
+
+Examples:
+
+```java
+/** Returns the correctly rounded positive square root of a double value. */
+static double sqrt(double a) {
+    ...
+}
+```
+
+or
+
+```java
+/**
+ * Constructs a new String by converting the specified array of
+ * bytes using the platform's default character encoding.
+ */
+public String(byte[] bytes) {
+    ...
+}
+```
+	
+
+## Listener used in the activity has to be implemented first and then used its override methods in same activity. If there are more than 2-3 fields included with listener with in same activity then that should be handled by Switch-case, else normal if-else condition should be used.
 
 ## Project Structure and files arrangement should be in such a way that can be identified easily by any developer. Follow below file arrangement and project structure for best practice.
 
