@@ -151,7 +151,6 @@ public String(byte[] bytes) {
 There has to be separate files for each class in my Android projects, the only exception being AsyncTasks. Having this many java files means you have to have more packages than the base package. Here the example ended up with a package for each type of main class. Each class should named ending with its type.
 
 - **com.example**
-
   - **activities (package):** Contains all the activities. Classes are all named with Activity at the end. That way, you can immediately know what it is when reading Java code that doesn't have its full package name.
 
   - **adapters (package):** Contains all the adapters.
