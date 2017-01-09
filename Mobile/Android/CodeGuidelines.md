@@ -77,7 +77,7 @@ Log.i("MyActivity", "MyClass.getView() — get item number " + position);
 Exceptions has to be well cached and well-handled for each exceptions. Exception should be globally handled.
 
 Check below unproper example:
-``java
+```java
 void setServerPort(String value) {
     try {
         serverPort = Integer.parseInt(value);
@@ -86,7 +86,6 @@ void setServerPort(String value) {
 ```
 
 Aslo don't catch generic exception like below:
-
 
 ```java
 try {
