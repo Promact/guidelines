@@ -152,7 +152,7 @@ There has to be separate files for each class in my Android projects, the only e
 
 - com.example
 
-  **- activities (package):** Contains all the activities. Classes are all named with Activity at the end. That way, you can immediately know what it is when reading Java code that doesn't have its full package name.
+  - **activities (package):** Contains all the activities. Classes are all named with Activity at the end. That way, you can immediately know what it is when reading Java code that doesn't have its full package name.
 
   - adapters (package) : Contains all the adapters.
 
