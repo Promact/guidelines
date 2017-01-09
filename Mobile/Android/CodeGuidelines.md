@@ -174,23 +174,52 @@ There has to be separate files for each class in my Android projects, the only e
   - **sync (package):** Contains all classes related to syncing. I use a SyncAdapter to pull data from an HTTP API. In addition to the SyncAdapter a SyncService is required, so I created a package.
 
 
-## Since we are using gradle framework for android application, version code, version name and other required declaration should be done in to gradle itself.
-Use android manifest for declaring permission, user-permission, services, receivers, intent-filter, activities, application class and its attribute.
-	Ref: 
+## Use Gradle
+
+- Since we are using gradle framework, project related information like version code, version name, package name, release keystore file location, keystore password and other required declaration should be written in to gradle itself.
+  
+  For example:
+  ```java
+  apply plugin: 'com.example.application'
+  android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    defaultConfig {
+        applicationId "com.google.googleio"
+        minSdkVersion 22
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        ...
+    }
+  }
+ dependencies {
+  ...  
+ }
+ ```
+
+- Use android manifest for declaring permission, user-permission, services, receivers, intent-filter, activities, application class and its attribute.
+
+
 ## Semantic versioning should be used for versioning the application.
-	Ref: 
+
 
 ## External library should be imported by maven or jCenter only. If library not available in maven or jCenter then that library (.jar file or module) should be placed into the libs folder under that particular module. (Such library should be also handled in .gitignore file to get committed along with code)
-Ref: 
+
 
 ## Method should not be called redundant. The Value of the method should store in one variable and that should be used whenever required. Method should be called only when it’s required to.
 
+
 ## If there are same Asynck task used in more than one activity, then make separate class for that and use interface to call their call back methods in activity. Same goes for all the methods. None should be repeated.
 
+
 ## Keep arrangement for android Manifest tags as per structure given in below link.
-Ref: 
+
 
 ## Commonly used layout should be kept into different layout file and that should be included whenever needed in xml layout. Don’t draw same layout again and again by code.
+
 
 ## Each Java source file contains a single public class or interface. When private classes and interfaces are associated with a public class, you can put them in the same source file as the public class. The public class should be the first class or interface in the file.
 Java source files have the following ordering: 
