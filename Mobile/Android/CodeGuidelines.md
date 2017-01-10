@@ -263,7 +263,14 @@ There has to be separate files for each class in my Android projects, the only e
 
 ## Use Semantic Versioning 
 
+Give project version name and number as per below information and updates: 
 
+For example: v2.4.10 (Where 2 is MAJOR, 4 is MINOR and 10 is PATCH)
+
+- MAJOR version when you make incompatible API changes,
+- MINOR version when you add functionality in a backwards-compatible manner, and
+- PATCH version when you make backwards-compatible bug fixes.
+- Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
 
 ## External library should be imported by maven or jCenter only. If library not available in maven or jCenter then that library (.jar file or module) should be placed into the libs folder under that particular module. (Such library should be also handled in .gitignore file to get committed along with code)
