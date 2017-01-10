@@ -260,6 +260,7 @@ There has to be separate files for each class in my Android projects, the only e
   </manifest>
   ```
 
+
 ## Use Semantic Versioning 
 
 
