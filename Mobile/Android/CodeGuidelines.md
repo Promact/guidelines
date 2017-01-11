@@ -273,11 +273,49 @@ For example: v2.4.10 (Where 2 is MAJOR, 4 is MINOR and 10 is PATCH)
 - Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
 
-## External library should be imported by maven or jCenter only. If library not available in maven or jCenter then that library (.jar file or module) should be placed into the libs folder under that particular module. (Such library should be also handled in .gitignore file to get committed along with code)
+## Always use gradle to import external library
+
+External library should be imported by maven or jCenter only. If library not available in maven or jCenter then that library (.jar file or module) should be placed into the libs folder under that particular module. (Such library should be also handled in .gitignore file to get committed along with code)
+
+For example:
+
+```java
+dependencies {
+    compile 'org.hibernate:hibernate-core:3.6.7.Final'
+}
+```
 
 
-## Method should not be called redundant. The Value of the method should store in one variable and that should be used whenever required. Method should be called only when it’s required to.
+## Avoid reduddent call of same method
 
+Method should not be called redundant. The Value of the method should store in one variable and that should be used whenever required. Method should be called only when it’s required to.
+
+Check beow method:
+
+```java
+public static boolean isResponseOk(ResponseHandler responseHandler, Activity mContext) {
+	boolean isResponseOk = false;
+	long responseCode = responseHandler.getResponseCode();
+	String responseString = responseHandler.getResponseString();
+	if(responseHandler != null) {
+	   if(responseCode == HttpURLConnection.HTTP_OK){
+		   isResponseOk = true;
+		   WLogger.d(TAG, responseCode + " ==== " + responseString);
+	   }else if(responseCode == HttpURLConnection.HTTP_FORBIDDEN) {
+		   // some task
+		   WLogger.e(TAG, responseCode + " ==== " + responseString);
+	   }else if(responseCode == HttpURLConnection.HTTP_VERSION){
+		   // some other task
+		   WLogger.e(TAG, responseCode + " ==== " + responseString);
+	   }else{
+		   WLogger.e(TAG, responseCode + " ==== " + responseString);
+	   }
+	}
+    return isResponseOk;
+}
+```
+
+In this example, the value of method **getResponseCode()** and **getResponseString()** is stored in to another variable and that is going to used in the method when needed.
 
 ## If there are same Asynck task used in more than one activity, then make separate class for that and use interface to call their call back methods in activity. Same goes for all the methods. None should be repeated.
 
