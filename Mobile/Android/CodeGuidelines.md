@@ -317,13 +317,123 @@ public static boolean isResponseOk(ResponseHandler responseHandler, Activity mCo
 
 In this example, the value of method **getResponseCode()** and **getResponseString()** is stored in to another variable and that is going to used in the method when needed.
 
-## If there are same Asynck task used in more than one activity, then make separate class for that and use interface to call their call back methods in activity. Same goes for all the methods. None should be repeated.
+
+## Use proper arrangement of AndroidManifest file
+
+Keep arrangement for android Manifest tags as per structure given in [this section.](https://github.com/ShreyashPromact/guidelines/blob/master/Mobile/Android/CodeGuidelines.md#use-gradle).
 
 
-## Keep arrangement for android Manifest tags as per structure given in below link.
+## Don't code for same layout, either include it
+
+Commonly used layout should be kept into different layout file and that should be included whenever needed in xml layout. Don’t draw same layout again and again by code.
+
+For example:
+
+Below is **include_toolbar.xml** which is commanly used in other layout file as well.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_width="match_parent"
+    android:background="?attr/colorPrimary"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+```
+
+Now, include that layout as below:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+	.../>
+        <android.support.v7.widget.RecyclerView
+	    .../>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <!-- Here I have included toolbar layout -->    
+    <include layout="@layout/includes_toolbar" />
+
+    <TextView
+        ...
+	/>
+</RelativeLayout>
+
+```
 
 
-## Commonly used layout should be kept into different layout file and that should be included whenever needed in xml layout. Don’t draw same layout again and again by code.
+## Commonly used strings & functions should be defined in a common class. 
+
+Strings and method that are often used in to class should be kept into the seperate class then that can be accessable threw the instance of the class. 
+Note: Strings and method should not be statically define in the project.
+
+For example: **GlobalInstance.java** is the class used to keep commanly used Strings and methods of the project. 
+
+Here **AZURE_USER** and **getAzureUser()** is the String and method respectivly used commanly in all other class of the project.
+
+```java
+public class GlobalInstance {
+    private static GlobalInstance uniqueInstance = new GlobalInstance();
+    private GlobalInstance(){}
+    public static GlobalInstance getInstance()
+    {
+        return uniqueInstance;
+    }
+    
+    String AZURE_USER = "user";
+    
+    public String getAzureUser(){
+        return AZURE_USER;
+    }
+}
+```
+
+Now, Checkout how to use that string and method in other class.
+
+First, you need to create instance of the GlobalInstance class.
+
+```java
+private GlobalInstance instance = GlobalInstance.getInstance();
+```
+
+Now, you can use the String and method as follow:
+
+```java
+String someString = instance.AZURE_USER;
+String someOtherString = instance.getAzureUser();
+```
+
+
+## Content description should be there for all required fields in xml layout files.
+
+For example:
+```xml
+<Button
+    android:id=”@+id/pause_button”
+    android:src=”@drawable/pause”
+    android:contentDescription=”@string/pause”/>
+```
+
+
+## Use resource files to store literal string, dimension, styles, theme etc
+
+should be defined in their respective file under values folder and then that reference should be used in to project java files and in XML layout when needed.
+
+## Height, width, margins, padding etc. should not be hard coded, it should be defined in to dimens.xml file and their reference should be used in the xml file and java file wherever needed.
+
+## Use 9patch image or vector image whenever needed. So you don't need to make separate images for other layout as well.
+
+## IDs should be prefixed with the name of the element in lowercase underscore. 
+
+For example:
+- String names start with a prefix that identifies the section they belong to. For example registration_email_hint or registration_name_hint.
 
 
 ## Each Java source file contains a single public class or interface. When private classes and interfaces are associated with a public class, you can put them in the same source file as the public class. The public class should be the first class or interface in the file.
@@ -398,7 +508,7 @@ Menu	menu_
 ## IDs should be prefixed with the name of the element in lowercase underscore. 
 For example:
 Image view example:
-```java
+```xml
 <ImageView
     android:id="@+id/image_profile"
     android:layout_width="wrap_content"
@@ -406,7 +516,7 @@ Image view example:
 ```
 
 Menu example:
-```java
+```xml
 <menu>
     <item
         android:id="@+id/menu_done"
@@ -435,22 +545,11 @@ action_	An action such as "Save" or "Create"
 
 ## There has to be common class to handle the network related call with in the application.
 
+
+
+
 Doubt to Clear
 
-## Commonly used strings & functions should be statically defined in a common respective class. Or commonly used String resources should be kept in to the separate class and that should be inherited to activity or class whenever needed.
-
-## Content descriptor should be there for all fields in xml layout files.
-
-## Literal string, dimension, styles, theme etc. should be defined in their respective file under values folder and then that reference should be used in to project java files and in XML layout when needed.
-
-## Height, width, margins, padding etc. should not be hard coded, it should be defined in to dimens.xml file and their reference should be used in the xml file and java file wherever needed.
-
-## Use 9patch image or vector image whenever needed. So you don't need to make separate images for other layout as well.
-
-## IDs should be prefixed with the name of the element in lowercase underscore. 
-
-For example:
-- String names start with a prefix that identifies the section they belong to. For example registration_email_hint or registration_name_hint.
 
 ## As a general rule you should try to group similar attributes together. A good way of ordering the most common attributes is:
 - View Id
