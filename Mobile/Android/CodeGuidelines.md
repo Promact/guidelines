@@ -458,7 +458,7 @@ For example:
      </style>
   </resources>
   ```
-  Now, use that style in to mail layout as below:
+  Now, use that style in to main layout as below:
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
