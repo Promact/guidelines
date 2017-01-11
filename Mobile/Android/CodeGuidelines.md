@@ -315,7 +315,7 @@ public static boolean isResponseOk(ResponseHandler responseHandler, Activity mCo
 }
 ```
 
-In this example, the value of method **getResponseCode()** and **getResponseString()** is stored in to another variable and that is going to used in the method when needed.
+In this example, the value of method **getResponseCode()** and **getResponseString()** is stored into another variable and that is going to used in the same method when needed.
 
 
 ## Use proper arrangement of AndroidManifest file
@@ -369,7 +369,7 @@ Now, include that layout as below:
 ```
 
 
-## Commonly used strings & functions should be defined in a common class. 
+## Commonly used strings & functions in java files should be defined in a common class. 
 
 Strings and method that are often used in to class should be kept into the seperate class then that can be accessable threw the instance of the class. 
 Note: Strings and method should not be statically define in the project.
@@ -395,7 +395,7 @@ public class GlobalInstance {
 }
 ```
 
-Now, Checkout how to use that string and method in other class.
+Now, Checkout how to use that string and method in other classes.
 
 First, you need to create instance of the GlobalInstance class.
 
@@ -413,6 +413,8 @@ String someOtherString = instance.getAzureUser();
 
 ## Content description should be there for all required fields in xml layout files.
 
+Content description gives more general information about the view. Defining content description for view, gives more indentification of the view and that can also usefull for automation testing to identify view.
+
 For example:
 ```xml
 <Button
@@ -424,16 +426,78 @@ For example:
 
 ## Use resource files to store literal string, dimension, styles, theme etc
 
-should be defined in their respective file under values folder and then that reference should be used in to project java files and in XML layout when needed.
+- Use **res/values/strings.xml** file to store string literal for xml layout
 
-## Height, width, margins, padding etc. should not be hard coded, it should be defined in to dimens.xml file and their reference should be used in the xml file and java file wherever needed.
+  For example:
+  ```xml
+  <?xml version = "1.0" encoding = "utf-8"?> 
+  <resources> 
+      <string name="hello"> Hello! </string> 
+  </resources>
+  ```
 
-## Use 9patch image or vector image whenever needed. So you don't need to make separate images for other layout as well.
+- Use **res/values/dimens.xml** file to store dimention used in xml layout
 
-## IDs should be prefixed with the name of the element in lowercase underscore. 
+  For example:
+  ```xml
+  <?xml version = "1.0" encoding = "utf-8"?> 
+  <resources> 
+      <dimen name="textview_height">25dp</dimen> 
+  </resources>
+  ```
 
-For example:
-- String names start with a prefix that identifies the section they belong to. For example registration_email_hint or registration_name_hint.
+- Use **res/values/styles.xml** file to create style for view
+
+  For example:
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <resources>
+     <style name="CustomText" parent="@style/Text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#008</item>
+     </style>
+  </resources>
+  ```
+  Now, use that style in to mail layout as below:
+
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <EditText
+     style="@style/CustomText"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:text="Hello, World!" />
+  ```
+
+- Use **res/values/themes.xml** file to create theme for layout of whole app or view
+
+  For example:
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <resource>
+    <style name="AppTheme" parent="android:Theme.Material">	
+      <item name ="android:color/primary">@color/primary</item>
+      <item name ="android:color/primaryDark">@color/primary_dark</item>
+      <item name ="android:colorAccent/primary">@color/accent</item>
+    </style>
+  <resource>
+  ```
+
+
+## IDs name should be well define in manner that can easily identify
+
+  IDs should be prefixed with the name of the element in lowercase underscore. 
+
+  For better way, start String names with a prefix that identifies the section they belong to
+
+  For example:
+
+  ```xml
+  <resources> 
+      <string name="registration_email_hint"> email </string> 
+      <string name="registration_name_hint"> name </string> 
+  </resources>
+  ```  
 
 
 ## Each Java source file contains a single public class or interface. When private classes and interfaces are associated with a public class, you can put them in the same source file as the public class. The public class should be the first class or interface in the file.
@@ -545,6 +609,7 @@ action_	An action such as "Save" or "Create"
 
 ## There has to be common class to handle the network related call with in the application.
 
+## Use 9patch image or vector image whenever needed. So you don't need to make separate images for other layout as well.
 
 
 
