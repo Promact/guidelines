@@ -500,16 +500,38 @@ For example:
   ```  
 
 
-## Each Java source file contains a single public class or interface. When private classes and interfaces are associated with a public class, you can put them in the same source file as the public class. The public class should be the first class or interface in the file.
-Java source files have the following ordering:
+## Java source file organization
 
- 
-- Class/Interface Doc comment
-- Class/Interface Statement
-- Class (static) variables
-- Interface Variables
-- Constructors
-- Methods
+- Each Java source file contains a single public class or interface. When private classes and interfaces are associated with a public class, you can put them in the same source file as the public class. The public class should be the first class or interface in the file.
+
+- Java source files have the following ordering:
+
+	- Beginning comments
+	- Package and Import statements
+		For example:
+		
+		```java
+		import java.applet.Applet;
+		import java.awt.*;
+		import java.net.*;
+		```
+		
+	- Class and interface declarations 
+		- Part of Class/Interface Declaration :
+			*  Class/interface documentation comment (/**...*/)
+			* class or interface statement
+			*  Class/interface implementation comment (/*...*/), if necessary
+			* Class (static) variables
+				* public
+				* protected
+				* private
+			* Instance variables
+				* public
+				* protected
+				* private
+			* Constructors
+			* Methods
+			
 
 ## When an expression will not fit on a single line, break it according to these general principles:
 
