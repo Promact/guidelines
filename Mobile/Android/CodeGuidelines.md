@@ -501,7 +501,9 @@ For example:
 
 
 ## Each Java source file contains a single public class or interface. When private classes and interfaces are associated with a public class, you can put them in the same source file as the public class. The public class should be the first class or interface in the file.
-Java source files have the following ordering: 
+Java source files have the following ordering:
+
+ 
 - Class/Interface Doc comment
 - Class/Interface Statement
 - Class (static) variables
