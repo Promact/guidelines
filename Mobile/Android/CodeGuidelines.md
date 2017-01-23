@@ -535,7 +535,9 @@ For example:
 			- Methods
 			
 
-## When an expression will not fit on a single line, break it according to these general principles:
+## Line breaks
+
+When an expression will not fit on a single line, break it according to these general principles:
 
 - Break after a comma.
 - Break before an operator. 
