@@ -499,40 +499,29 @@ For example:
   </resources>
   ```  
 
-
 ## Java source file organization
 
 - Each Java source file contains a single public class or interface. When private classes and interfaces are associated with a public class, you can put them in the same source file as the public class. The public class should be the first class or interface in the file.
 
 - Java source files have the following ordering:
 
-	- Beginning comments
-	- Package and Import statements
-		For example:
-		
-		```java
-		package com.domain.myapp;
-		
-		import android.app.Activity;
-		import android.content.Intent;
-		import android.content.SharedPreferences;
-		```
-		
-	- Class and interface declarations : 
-		- Part of Class/Interface Declaration :
-			- Class/interface documentation comment
-			- Class or interface statement
-			- Class/interface implementation comment, if necessary
-			- Class (static) variables :
-				- public
-				- protected
-				- private
-			- Instance variables :
-				- public
-				- protected
-				- private
-			- Constructors
-			- Methods
+     - Beginning comments
+     - Package and Import statements
+     - Class and interface declarations : 
+     - Part of Class/Interface Declaration :
+       - Class/interface documentation comment
+       - Class or interface statement
+       - Class/interface implementation comment, if necessary
+       - Class (static) variables :
+           - public
+           - protected
+           - private
+       - Instance variables :
+           - public
+           - protected
+           - private
+       - Constructors
+       - Methods
 			
 
 ## Line breaks
@@ -543,13 +532,14 @@ When an expression will not fit on a single line, break it according to these ge
 - Break before an operator. 
 - Prefer higher-level breaks to lower-level breaks. 
 - Align the new line with the beginning of the expression at the same level on the previous line. 
-- For example :
-	
-	```java
+
+For example :
+
+```java
 	var = function1(longExpression1,
-					function2(longExpression2,
-							  longExpression3));
-	```
+			function2(longExpression2,
+				longExpression3));
+```
 	
 ## Declarations
 
@@ -559,9 +549,8 @@ Put declarations only at the beginning of blocks. (A block is any code surrounde
 braces “{” and “}”.) Don’t wait to declare variables until their first use; it can confuse the
 unwary programmer and hamper code portability within the scope.
 
-- For example :
-
-	```java
+For example :
+```java
 		void MyMethod() {
 			int int1; // beginning of method block
 			if (condition) {
@@ -569,7 +558,7 @@ unwary programmer and hamper code portability within the scope.
 				...
 			}
 		}
-	```
+```
 	
 ###Class and Interface Declarations
 
@@ -600,41 +589,39 @@ When coding Java classes and interfaces, the following formatting rules should b
 
 - Class names are written in UpperCamelCase.
 
-	- For classes that extend an Android component, the name of the class should end with the name of the component;
-	
-	For example: 
-	
-	`SignInActivity`, `SignInFragment`, `ImageUploaderService`, `ChangePasswordDialog`
+    For classes that extend an Android component, the name of the class should end with the name of the component;
+
+    For example - `SignInActivity`, `SignInFragment`, `ImageUploaderService`, `ChangePasswordDialog`
 
 - Resources file names are written in lowercase_underscore.
 
-	| Asset Type   	| Prefix        | Example  			|
-	| --------------|:-------------:| -----------------:|
-	| Menu 			| `menu_`		| menu_bg.9.png		|
-	| Button   		| `btn_`     	| btn_pressed.9.png |
-	| Icon     		| `ic_` 		| ic_star.9.png 	|
-	| Tab      		| `tab_`      	| tab_focused.9.png |
+	| Asset Type   	| Prefix        | Example  		|
+	| --------------|:-------------:| ---------------------:|
+	| Menu 		| `menu_`	| menu_bg.9.png		|
+	| Button   	| `btn_`     	| btn_pressed.9.png 	|
+	| Icon     	| `ic_` 	| ic_star.9.png 	|
+	| Tab      	| `tab_`      	| tab_focused.9.png 	|
 	
 - Layout files should match the name of the Android components that they are intended for but moving the top level component name to the beginning.
 
-	| Component		| Class Name			| Layout Name				 |
-	| --------------|:---------------------:| --------------------------:|
-	| Activity		| UserProfileActivity	| activity_user_profile.xml  |
-	| Fragment		| SignUpFragment		| fragment_sign_up.xml		 |
-	| Dialog		| ChangePasswordDialog	| dialog_change_password.xml |
+	| Component	| Class Name		| Layout Name			|
+	| --------------|:---------------------:| -----------------------------:|
+	| Activity	| UserProfileActivity	| activity_user_profile.xml  	|
+	| Fragment	| SignUpFragment	| fragment_sign_up.xml		|
+	| Dialog	| ChangePasswordDialog	| dialog_change_password.xml 	|
 
 
 ## XML style rules
 
- - *Use self closing tags :* When an XML element doesn't have any contents, you must use self-closing tags.
+ - **Use self closing tags :** When an XML element doesn't have any contents, you must use self-closing tags.
 
- - *Resource naming :* Resource IDs and names are written in lowercase_underscore. IDs should be prefixed with the name of the element in lowercase underscore.
+ - **Resource naming :** Resource IDs and names are written in lowercase_underscore. IDs should be prefixed with the name of the element in lowercase underscore.
 	
 	| Element   	| Prefix        |
 	| --------------|:-------------:|
-	| TextView 		| `text_`		|
+	| TextView 	| `text_`	|
 	| ImageView   	| `image_`     	|
-	| Button     	| `button_`		| 
+	| Button     	| `button_`	| 
 	| Menu      	| `menu_`      	|
  
  For example :
@@ -645,40 +632,37 @@ When coding Java classes and interfaces, the following formatting rules should b
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" />
  ```
-- *Attributes ordering :* As a general rule you should try to group similar attributes together. A good way of ordering the most common attributes is:
+- **Attributes ordering :** As a general rule you should try to group similar attributes together. A good way of ordering the most common attributes is:
 
-	- View Id
-	- Style
-	- Layout width and layout height
-	- Other layout attributes
-	- Remaining attributes
+     - View Id
+     - Style
+     - Layout width and layout height
+     - Other layout attributes
+     - Remaining attributes
  
 ## String constants, naming, and values
 
 - Many elements of the Android SDK such as SharedPreferences, Bundle, or Intent use a key-value pair approach so it's very likely that even for a small app you end up having to write a lot of String constants. When using one of these components, you must define the keys as a static final fields and they should be prefixed as indicated below.
 
-		Element				| Field Name Prefix |
-		--------------------|:-----------------:|
-		SharedPreferences	| PREF_				|
-		Bundle				| BUNDLE_			|	
-		Fragment Arguments	| ARGUMENT_			|
-		Intent Extra		| EXTRA_			|
-		Intent Action		| ACTION_			|
+		Element			| Field Name Prefix 	|
+		------------------------|:---------------------:|
+		SharedPreferences	| PREF_			|
+		Bundle			| BUNDLE_		|	
+		Fragment Arguments	| ARGUMENT_		|
+		Intent Extra		| EXTRA_		|
+		Intent Action		| ACTION_		|
 
 
-- String names start with a prefix that identifies the section they belong to.
-
-		For example :
-		registration_email_hint
-		registration_name_hint. 
+- String names start with a prefix that identifies the section they belong to. 
+For example - registration_email_hint, registration_name_hint. 
 
 - If a string doesn't belong to any section, then you should follow the rules below:
 
-		Prefix	| Description							|
+		Prefix	| Description				|
 		--------|:-------------------------------------:|
-		error_	| An error message						|
-		msg_	| A regular information message			|
-		title_	| A title, i.e. a dialog title			|
+		error_	| An error message			|
+		msg_	| A regular information message		|
+		title_	| A title, i.e. a dialog title		|
 		action_	| An action such as "Save" or "Create" 	|
 
 
@@ -699,7 +683,6 @@ Make more flavour if there are more environment for the project needed.
 As every app developer surely knows, monitoring your app’s stability is a must. And there’s hardly anything more important than keeping your crash count down to a minimum.
 Fortunately, there is a variety of crash reporting tools at your disposal with which you can arm yourself. 
 Always integrate any one such tool before delivering an App to Tester or Client. It helps us to identify and respond to common crashes in a timely manner.
-
 
 ## There has to be common class to handle the network related call with in the application.
 
