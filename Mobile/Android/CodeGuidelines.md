@@ -511,26 +511,28 @@ For example:
 		For example:
 		
 		```java
-		import java.applet.Applet;
-		import java.awt.*;
-		import java.net.*;
+		package com.domain.myapp;
+		
+		import android.app.Activity;
+		import android.content.Intent;
+		import android.content.SharedPreferences;
 		```
 		
-	- Class and interface declarations 
+	- Class and interface declarations : 
 		- Part of Class/Interface Declaration :
-			*  Class/interface documentation comment (/**...*/)
-			* class or interface statement
-			*  Class/interface implementation comment (/*...*/), if necessary
-			* Class (static) variables
-				* public
-				* protected
-				* private
-			* Instance variables
-				* public
-				* protected
-				* private
-			* Constructors
-			* Methods
+			- Class/interface documentation comment
+			- Class or interface statement
+			- Class/interface implementation comment, if necessary
+			- Class (static) variables :
+				- public
+				- protected
+				- private
+			- Instance variables :
+				- public
+				- protected
+				- private
+			- Constructors
+			- Methods
 			
 
 ## When an expression will not fit on a single line, break it according to these general principles:
@@ -539,113 +541,173 @@ For example:
 - Break before an operator. 
 - Prefer higher-level breaks to lower-level breaks. 
 - Align the new line with the beginning of the expression at the same level on the previous line. 
+- For example :
+	
+	```java
+	var = function1(longExpression1,
+					function2(longExpression2,
+							  longExpression3));
+	```
+	
+## Declarations
 
-## Class names are written in UpperCamelCase.
-For classes that extend an Android component, the name of the class should end with the name of the component; for example: SignInActivity, ImageUploaderService
+###Placement
 
-## Resources file names are written in lowercase_underscore.
+Put declarations only at the beginning of blocks. (A block is any code surrounded by curly
+braces “{” and “}”.) Don’t wait to declare variables until their first use; it can confuse the
+unwary programmer and hamper code portability within the scope.
 
-## Layout files should match the name of the android components that they are intended for but moving the top level component name to the beginning. For example, if we are creating a layout for the SignInActivity, the name of the layout file should be activity_sign_in.xml.
+- For example :
 
-## Similar to layout files, menu files should match the name of the component. For example, if we are defining a menu file that is going to be used in the UserActivity, then the name of the file should be activity_user.xml
+	```java
+		void MyMethod() {
+			int int1; // beginning of method block
+			if (condition) {
+				int int2; // beginning of "if" block
+				...
+			}
+		}
+	```
+	
+###Class and Interface Declarations
 
-## A good practice is to not include the word menu as part of the name because these files are already located in the menu
+When coding Java classes and interfaces, the following formatting rules should be followed:
 
-## When an XML element doesn't have any contents, you must use self-closing tags.
-
-## Resource IDs and names are written in lowercase_underscore.
-
-## When coding Java classes and interfaces, the following formatting rules should be followed: 
-
-## No space between a method name and the parenthesis “(“ starting its parameter list 
+- No space between a method name and the parenthesis “(“ starting its parameter list
 - Open brace “{” appears at the end of the same line as the declaration statement
-- Closing brace “}” starts a line by itself indented to match its corresponding opening statement, except when it is a null statement the “}” should appear immediately after the “{“
+- Closing brace “}” starts a line by itself indented to match its corresponding opening statement, except when it is a null statement the “}” should appear immediately after the “{“.
 - Methods are separated by a blank line
-- If statement: if statements always use braces {}
-- switch Statements: Every time a case falls through (doesn’t include a break statement), add a comment where the break statement would normally be.Every switch statement should include a default case.
-- Blank Lines: Blank lines improve readability by setting off sections of code that are logically related. 
+- For example :
 
-Two blank lines should always be used in the following circumstances: 
-- Between sections of a source file 
-- Between class and interface definitions One blank line should always be used in the following circumstances: 
-- Between methods: Between the local variables in a method and its first statement.
+```java
+	class Sample extends Object {
+		int ivar1;
+		int ivar2;
+		
+		Sample(int i, int j) {
+			ivar1 = i;
+			ivar2 = j;
+		}
+		
+		int emptyMethod() {}
+		...
+	}
+```
 
-Element	Field Name Prefix
-SharedPreferences	PREF_
-Bundle	BUNDLE_
-Fragment Arguments	ARGUMENT_
-Intent Extra	EXTRA_
-Intent Action	ACTION_
+## File naming
 
-## Many elements of the Android SDK such as SharedPreferences, Bundle, or Intent use a key-value pair approach so it's very likely that even for a small app you end up having to write a lot of String constants.
+- Class names are written in UpperCamelCase.
+
+	- For classes that extend an Android component, the name of the class should end with the name of the component;
+	
+	For example: 
+	
+	`SignInActivity`, `SignInFragment`, `ImageUploaderService`, `ChangePasswordDialog`
+
+- Resources file names are written in lowercase_underscore.
+
+	| Asset Type   	| Prefix        | Example  			|
+	| --------------|:-------------:| -----------------:|
+	| Menu 			| `menu_`		| menu_bg.9.png		|
+	| Button   		| `btn_`     	| btn_pressed.9.png |
+	| Icon     		| `ic_` 		| ic_star.9.png 	|
+	| Tab      		| `tab_`      	| tab_focused.9.png |
+	
+- Layout files should match the name of the Android components that they are intended for but moving the top level component name to the beginning.
+
+	| Component		| Class Name			| Layout Name				 |
+	| --------------|:---------------------:| --------------------------:|
+	| Activity		| UserProfileActivity	| activity_user_profile.xml  |
+	| Fragment		| SignUpFragment		| fragment_sign_up.xml		 |
+	| Dialog		| ChangePasswordDialog	| dialog_change_password.xml |
 
 
-## When using one of these components, you must define the keys as a static final fields and they should be prefixed as indicated below.
-Element	Prefix
-TextView	text_
-ImageView	image_
-Button	button_
-Menu	menu_
+## XML style rules
 
+ - *Use self closing tags :* When an XML element doesn't have any contents, you must use self-closing tags.
 
-## When an XML element doesn't have any contents, you must use self-closing tags.
-
-## Resource IDs and names are written in lowercase_underscore.
-
-
-## IDs should be prefixed with the name of the element in lowercase underscore. 
-For example:
-Image view example:
-```xml
-<ImageView
+ - *Resource naming :* Resource IDs and names are written in lowercase_underscore. IDs should be prefixed with the name of the element in lowercase underscore.
+	
+	| Element   	| Prefix        |
+	| --------------|:-------------:|
+	| TextView 		| `text_`		|
+	| ImageView   	| `image_`     	|
+	| Button     	| `button_`		| 
+	| Menu      	| `menu_`      	|
+ 
+ For example :
+ 
+ ```xml
+ <ImageView
     android:id="@+id/image_profile"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" />
-```
+ ```
+- *Attributes ordering :* As a general rule you should try to group similar attributes together. A good way of ordering the most common attributes is:
 
-Menu example:
-```xml
-<menu>
-    <item
-        android:id="@+id/menu_done"
-        android:title="Done" />
-</menu>
-```
+	- View Id
+	- Style
+	- Layout width and layout height
+	- Other layout attributes
+	- Remaining attributes
+ 
+## String constants, naming, and values
+
+- Many elements of the Android SDK such as SharedPreferences, Bundle, or Intent use a key-value pair approach so it's very likely that even for a small app you end up having to write a lot of String constants. When using one of these components, you must define the keys as a static final fields and they should be prefixed as indicated below.
+
+		Element				| Field Name Prefix |
+		--------------------|:-----------------:|
+		SharedPreferences	| PREF_				|
+		Bundle				| BUNDLE_			|	
+		Fragment Arguments	| ARGUMENT_			|
+		Intent Extra		| EXTRA_			|
+		Intent Action		| ACTION_			|
 
 
-## String names start with a prefix that identifies the section they belong to. For example registration_email_hint or registration_name_hint. If a string doesn't belong to any section, then you should follow the rules below:
+- String names start with a prefix that identifies the section they belong to.
 
-Prefix	Description
-error_	An error message
-msg_	A regular information message
-title_	A title, i.e. a dialog title
-action_	An action such as "Save" or "Create"
+		For example :
+		registration_email_hint
+		registration_name_hint. 
 
+- If a string doesn't belong to any section, then you should follow the rules below:
+
+		Prefix	| Description							|
+		--------|:-------------------------------------:|
+		error_	| An error message						|
+		msg_	| A regular information message			|
+		title_	| A title, i.e. a dialog title			|
+		action_	| An action such as "Save" or "Create" 	|
 
 
 # GENERAL APPROACH
 
-## For best practice, use git commands in terminal window to commit, push, update and others operations. Don’t use direct options available in IDE for code repository.
+## Learn git CLI by heart, stop using GUI
 
-## For best practice, define flavour for the project in gradle to differentiate development version and release version. Make more flavour if there are more environment for the project needed. Make sure to packaging, naming and versioning the app for each flavour.
+The first and most important practice of git is learn all the git commands by heart and use them, do not rely on GUI for git. Don’t use direct options available in IDE for code repository.
 
-## Keep using crash reporting tools like Crashlytics, Analytics or Bug Finder to identify the crash report. That will help to resolved bugs.
+## Using Android Product Flavors
+
+ProductFlavor is a very powerful feature available in the Android gradle plugin that allows.
+For best practice, define flavour of the project in gradle for development, stagging & production environment.
+Make more flavour if there are more environment for the project needed. 
+
+## Using Crashing Reporting Tools
+
+As every app developer surely knows, monitoring your app’s stability is a must. And there’s hardly anything more important than keeping your crash count down to a minimum.
+Fortunately, there is a variety of crash reporting tools at your disposal with which you can arm yourself. 
+Always integrate any one such tool before delivering an App to Tester or Client. It helps us to identify and respond to common crashes in a timely manner.
+
 
 ## There has to be common class to handle the network related call with in the application.
 
-## Use 9patch image or vector image whenever needed. So you don't need to make separate images for other layout as well.
+## Using 9 patch images
+
+9 Patch images are stretchable, repeatable images reduced to their smallest size.the image won't stretch and loose proportions in different screen sizes. One more and biggest advantage is memory. 
+Same small size memory can be reused for different screen size devices. Well-designed 9-patch images are less error-prone and have high re-usability 
 
 
 
-Doubt to Clear
-
-
-## As a general rule you should try to group similar attributes together. A good way of ordering the most common attributes is:
-- View Id
-- Style
-- Layout width and layout height
-- Other layout attributes, sorted alphabetically
-- Remaining attributes, sorted alphabetically
 
 
 ### Reference
@@ -660,3 +722,4 @@ http://blog.smartlogic.io/2013-07-09-organizing-your-android-development-code-st
 https://developer.android.com/studio/publish/versioning.html
 http://semver.org/
 https://developer.android.com/guide/topics/manifest/manifest-intro.html
+http://www.oracle.com/technetwork/java/codeconventions-150003.pdf
