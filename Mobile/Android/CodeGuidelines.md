@@ -684,12 +684,15 @@ As every app developer surely knows, monitoring your app’s stability is a must
 Fortunately, there is a variety of crash reporting tools at your disposal with which you can arm yourself. 
 Always integrate any one such tool before delivering an App to Tester or Client. It helps us to identify and respond to common crashes in a timely manner.
 
-## There has to be common class to handle the network related call with in the application.
+## Use Rest Client
+
+Almost all of the apps we develop need to communicate in some way or another with a remote backend. To do this, either come up with our own solution or  make use of any of the many battle tested libraries available.
+Always create an interface which contains the common network related methods like addHeaders(), addParam(), doGet(), doPost() etc. Then implement the interface and write your own logic to handle API call. 
 
 ## Using 9 patch images
 
 9 Patch images are stretchable, repeatable images reduced to their smallest size.the image won't stretch and loose proportions in different screen sizes. One more and biggest advantage is memory. 
-Same small size memory can be reused for different screen size devices. Well-designed 9-patch images are less error-prone and have high re-usability 
+Same small size memory can be reused for different screen size devices. Well-designed 9-patch images are less error-prone and have high re-usability. 
 
 
 
