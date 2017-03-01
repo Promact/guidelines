@@ -145,6 +145,59 @@ public String(byte[] bytes) {
 
 ## Listener used in the activity has to be implemented first and then used its override methods in same activity. If there are more than 2-3 fields included with listener with in same activity then that should be handled by Switch-case, else normal if-else condition should be used.
 
+Implementing a Listener is quite easy. There are 3 ways to implement an Listener and the have their advantages and disadvantages.
+The three way to implement Listeners are
+
+- **Inline Implementation**
+- **Using the implements keyword**
+- **By using variables**
+
+
+**Using the “implements” keyword**
+
+We recommend this method, that is to implement a Listener by adding an interface to your base class. In java you can do this by adding “implements Interfacename” to the class declaration.
+
+ ```java
+public class ExampleImplements extends Activity implements OnClickListener {
+ 
+   
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+ 
+    ...        
+ 
+        // Set Click Listener
+        btnLogin.setOnClickListener(this);
+        btnCancel.setOnClickListener(this);
+    }
+ 
+    @Override
+    public void onClick(View v) {
+        if(v==btnLogin) {
+            // Check Login
+            String username = etUsername.getText().toString();
+            String password = etPassword.getText().toString();
+             
+            if(username.equals("guest") && password.equals("guest")){
+                lblResult.setText("Login successful.");
+            } else {
+                lblResult.setText("Login failed. Username and/or password doesn't match.");
+            }
+        } else if(v==btnCancel) {
+            // Close the application
+            finish();
+        }
+    }
+}
+
+ ```
+
+**Advantages**
+
+- Methods/Listener can be reused in many different widgets
+- Code of multiple Listeners is located in the same section of code
+- Can be used to create one method for similar Listeners
 
 
 ## Project Structure and files arrangement should be in such a way that can be identified easily by any developer. Follow below file arrangement and project structure for best practice.
@@ -180,6 +233,7 @@ There has to be separate files for each class in my Android projects, the only e
 - Since we are using gradle framework, project related information like version code, version name, package name, release keystore file location, keystore password and other required declaration should be written in to gradle itself.
   
   For example:
+
   ```java
   apply plugin: 'com.example.application'
   android {
