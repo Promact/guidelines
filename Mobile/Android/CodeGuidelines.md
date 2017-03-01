@@ -148,14 +148,14 @@ public String(byte[] bytes) {
 Implementing a Listener is quite easy. There are 3 ways to implement an Listener and the have their advantages and disadvantages.
 The three way to implement Listeners are
 
-- **Inline Implementation**
-- **Using the implements keyword**
-- **By using variables**
+- Inline Implementation
+- Using the implements keyword
+- By using variables
 
 
-**Using the “implements” keyword**
+**Recommended - Using the “implements” keyword**
 
-We recommend this method, that is to implement a Listener by adding an interface to your base class. In java you can do this by adding “implements Interfacename” to the class declaration.
+Implement a listener by adding an interface to your base class. In java you can do this by adding “implements Interfacename” to the class declaration.
 
  ```java
 public class ExampleImplements extends Activity implements OnClickListener {
