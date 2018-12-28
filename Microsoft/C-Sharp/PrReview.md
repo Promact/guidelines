@@ -59,7 +59,7 @@
     }
 ```
 
-2. Don't return **null** from a method from which a value is expected
+2. Don't return **null** from a method from which a value is expected. Try to throw a custom exception with a user friendly message.
 
 ```csharp
         public string GetEmployeeName(int id)
