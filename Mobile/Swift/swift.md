@@ -1,3 +1,8 @@
+---
+layout: default
+permalink: /ios/
+---
+
 # Struct vs Class
 
 **- struct is pass-by-copy and class is pass-by-reference**
