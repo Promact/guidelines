@@ -1,4 +1,9 @@
-﻿# Android Project Guidelines
+﻿---
+layout: default
+permalink: /android/
+---
+
+# Android Project Guidelines
 
 This is general guideline and rules to follow for android application development.
 
