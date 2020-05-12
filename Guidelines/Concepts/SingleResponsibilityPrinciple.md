@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /concepts/
+permalink: /concept/
 ---
 
 # SRP (Single Responsibility Principle)
