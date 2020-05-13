@@ -1,3 +1,9 @@
+---
+layout: default
+permalink: /mysql/
+---
+
+
 - Indexes speed up retrievals but slow down inserts and deletes, as well as updates of values in indexed columns. That is, indexes slow down most operations that involve writing. This occurs because writing a row requires writing not only the data row, it requires changes to any indexes as well. The more indexes a table has, the more changes need to be made, and the greater the average performance degradation. Most tables receive many reads and few writes, but for a table with a high percentage of writes, the cost of index updating might be significant.
 
 - If you don’t need a particular index to help queries perform better, don’t create it.
